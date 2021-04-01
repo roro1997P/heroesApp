@@ -3,7 +3,7 @@ import { getHeroes } from '../../helpers/getHeroes';
 import { useForm } from '../../hooks/useForm';
 import { Herocard } from './Herocard';
 
-export const HeroSearchScreen = ({ history }) => {
+export const HeroSearchScreen = () => {
     
     const [ heroes, setHeroes ] = useState();
     const [ error, setError ] = useState( false );
@@ -42,7 +42,6 @@ export const HeroSearchScreen = ({ history }) => {
 
         setError( false );
         setHeroes( results );
-        history.push(`?q=${ search }`)
     };
 
     return (

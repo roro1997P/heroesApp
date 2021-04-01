@@ -10,6 +10,9 @@ export const heroReducer = ( state = [], action ) => {
                 action.payload,
             ];
 
+        case types.deleteHero:
+            return  action.payload;
+        
         default:
             return state;
     }

@@ -4,4 +4,5 @@ export const types = {
     logout: '[auth] Logout',
 
     addHero: '[hero] Add',
+    deleteHero: '[hero] Delete',
 }

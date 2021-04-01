@@ -1,0 +1,9 @@
+.card-deck {
+    display: flex;
+    height: 200px;
+    flex-wrap: wrap;
+}
+
+img {
+    height: auto;
+}
