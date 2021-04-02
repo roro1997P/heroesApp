@@ -13,8 +13,8 @@ export const HeroSearchScreen = () => {
         color: '',
     });
 
-    const [formValues, handleInputChange] = useForm({ search: '', apikey: '' });
-    const { search, apikey } = formValues;
+    const [formValues, handleInputChange] = useForm({ search: '' });
+    const { search } = formValues;
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -32,7 +32,7 @@ export const HeroSearchScreen = () => {
             return;
         }
 
-        const { results } = await getHeroes(search, apikey);
+        const { results } = await getHeroes(search);
 
         if (!results) {
             setError(true);
@@ -52,15 +52,6 @@ export const HeroSearchScreen = () => {
     return (
         <div className="container">
             <br />
-            <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://superheroapi.com/"
-                className="btn btn-outline-info w-100 mt-3 mb-3"
-            >
-                Log in facebook to use the api
-            </a>
-
             <div className="row">
 
                 <div className="col-5">
@@ -68,15 +59,6 @@ export const HeroSearchScreen = () => {
                     <hr />
 
                     <form onSubmit={handleSearch}>
-
-                        <input
-                            type="text"
-                            placeholder="Put your api key"
-                            className="form-control mb-3"
-                            name="apikey"
-                            value={apikey}
-                            onChange={handleInputChange}
-                        />
                         <input
                             autoComplete="off"
                             type="text"
