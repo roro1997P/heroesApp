@@ -32,7 +32,7 @@ export const HeroSearchScreen = () => {
             return;
         }
 
-        const { results } = await getHeroes(search);
+        const { results } = await getHeroes(search, apikey);
 
         if (!results) {
             setError(true);
