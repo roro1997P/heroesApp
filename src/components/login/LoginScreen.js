@@ -13,12 +13,14 @@ export const LoginScreen = ({ history }) => {
 
     const [ formValues, handleInputChange ] = useForm({ email: '', password: '', });
     const [ error, setError ] = useState( false );
+    const [ loading, setLoading ] = useState(false);
     const [ errorMessage, setErrorMessage]  = useState('');
 
     const { email, password } = formValues;
 
     const handleSubmit = async ( e ) => {
         e.preventDefault();
+        setError(false);
 
         if( email.trim() === '' || password.trim() === '' ) {
             setError( true );
@@ -27,8 +29,10 @@ export const LoginScreen = ({ history }) => {
         }
 
         if ( email.trim() !== 'challenge@alkemy.org' || password.trim() !== 'react' ) {
+            setLoading(true);
             setTimeout(() => {
                 setError( true );
+                setLoading(false);
                 setErrorMessage('Invalid credentials');
             }, 1000);
 
@@ -36,12 +40,14 @@ export const LoginScreen = ({ history }) => {
         }
 
         setError( false );
+        setLoading(true);
         setTimeout(() => {
             dispatch({
                 type: types.login,
             });
-            history.replace('/home');
-        }, 1000);      
+            history.replace('/home'); 
+        }, 1000);    
+        
 
         /* const data = await getAuth( formValues ); */
     };
@@ -58,6 +64,16 @@ export const LoginScreen = ({ history }) => {
                     (error)
                     ? <div className="alert alert-danger"> { errorMessage } </div>
                     : null
+                }
+
+                {
+                    ( loading )
+                        ?   <div className="text-center mb-3">
+                                <div className="spinner-border" role="status">
+                                    <span className="sr-only"></span>
+                                </div>
+                            </div>
+                        : null
                 }
 
                 <div className="form-group">
@@ -86,7 +102,6 @@ export const LoginScreen = ({ history }) => {
                 <div className="form-group">
                     <button className="btn btn-primary btn-block" type="submit">Log In</button>
                 </div>
-                <p className="forgot mt-3">Forgot your email or password?</p>
             </form>
         </div>
     )

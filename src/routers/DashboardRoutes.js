@@ -15,7 +15,7 @@ export const DashboardRoutes = () => {
                     <Route exact path="/search" component={ HeroSearchScreen }/>
                     <Route exact path="/hero/:heroId" component={ HeroScreen }/>
 
-                    <Redirect to="/login" />
+                    <Redirect to="/home" />
                 </Switch>
             </div>
         </>

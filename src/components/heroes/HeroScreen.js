@@ -37,8 +37,8 @@ export const HeroScreen = ({ history }) => {
             <div className="col-8 animate__animated animate__fadeIn">
                 <h3> { name } </h3>
                 <ul className="list-group list-group-flush">
-                    <li className="list-group-item"> <b> Weight: </b> { appearanceValues[3][0] } </li>
-                    <li className="list-group-item"> <b> Height: </b> { appearanceValues[2][0] } </li>
+                    <li className="list-group-item"> <b> Weight: </b> { appearanceValues[3][1] } </li>
+                    <li className="list-group-item"> <b> Height: </b> { appearanceValues[2][1] } </li>
                     <li className="list-group-item"> <b> Full name: </b> { biographyValues[0] } </li>
                     <li className="list-group-item"> <b> Alias: </b> { biographyValues[2][0] } </li>
                     <li className="list-group-item"> <b> Eye color: </b> { appearanceValues[4] } </li>
