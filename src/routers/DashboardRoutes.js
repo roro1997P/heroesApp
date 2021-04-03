@@ -5,7 +5,10 @@ import { HeroSearchScreen } from '../components/heroes/HeroSearchScreen'
 import { HomeScreen } from '../components/home/HomeScreen'
 import { Navbar } from '../components/ui/Navbar'
 
-export const DashboardRoutes = () => {
+export const DashboardRoutes = ( rest ) => {
+
+    localStorage.setItem('lastpath', rest.location.pathname);
+
     return (
         <>
             <Navbar />

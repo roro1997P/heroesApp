@@ -10,6 +10,8 @@ export const LoginScreen = ({ history }) => {
 
     const { dispatch } = useContext(AuthContext);
 
+    const lastPath = localStorage.getItem('lastpath') || '/home';
+
 
     const [ formValues, handleInputChange ] = useForm({ email: '', password: '', });
     const [ error, setError ] = useState( false );
@@ -45,7 +47,7 @@ export const LoginScreen = ({ history }) => {
             dispatch({
                 type: types.login,
             });
-            history.replace('/home'); 
+            history.replace(lastPath); 
         }, 1000);    
         
 
